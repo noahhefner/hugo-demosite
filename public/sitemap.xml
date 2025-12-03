@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
+    <loc>http://localhost:1313/blog/linux-desktop/</loc>
+    <lastmod>2025-12-02T02:33:20+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/docker/</loc>
+    <lastmod>2025-08-31T12:44:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/python-containerization/</loc>
+    <lastmod>2025-08-31T12:44:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2025-08-31T12:44:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-08-31T12:44:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/uv/</loc>
+    <lastmod>2025-08-31T12:44:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/htmx/htmx/</loc>
+    <lastmod>2024-09-03T12:45:58-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/infinite-scroll-htmx/</loc>
+    <lastmod>2024-05-04T06:45:49-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/homelab-journey/</loc>
+    <lastmod>2024-01-10T00:40:04-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/blue/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
@@ -17,20 +41,18 @@
     <loc>http://localhost:1313/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/post-1/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2023-01-01T08:30:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2023-01-01T08:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/blog/post1/</loc>
   </url>
 </urlset>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Implementing Infinite Scroll with HTMX, Python, and MongoDB | My New Hugo Site</title>
+
+    <link rel="stylesheet" href="/css/pico.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+      <script src="/js/main.js"></script>
+
+
+</head>
+<body class="bg-body-tertiary">
+  
+  <h1>Implementing Infinite Scroll with HTMX, Python, and MongoDB</h1>
+
+  <p>The source code for this demo is available <a href="https://github.com/noahhefner/website-code/tree/main/infinite-scroll-htmx">here</a>. Instructions for setting up the project are in the README.</p>
+<h1 id="context">Context</h1>
+<p>I am working on a project at my day job where we are building a documentation site for a very large and complex software system. We have over 20,000 technical documents outlining how the software works. Our customer needs a way to search, browse, and update these documents efficiently. Our current proposed solution uses a Python/FastAPI web server, MongoDB to store the document data, and HTMX to handle frontend updates. (I am not able to make my work repo publicly available, so I have pulled out only the essential logic portions for this demo.) The purpose of this article is to show how we have implemented the &ldquo;infinite scroll&rdquo; functionality for the document search results page with our chosen tooling. The ideas, however, should be easily adaptable to other languages (as long you&rsquo;re using HTMX.) <em>Familiarity with HTMX is recommended before reading this article.</em></p>
+<h1 id="problem">Problem</h1>
+<p>When searching for a query in the database, there can be hundreds or thousands of results returned. This causes the front end to lock up while the web server builds the HTML to return to the client. We can partially solve this problem by using a limit on our query to MongoDB so that we can return only the first X number of matches to the client. Then the server can respond as soon as those X number of matches are found and we don&rsquo;t have to wait for the search to execute on the rest of the database.</p>
+<p>But then the question arises, how do we get the next X matches? If we choose to implement the results page with an infinite scroll approach, then we need a way to load the next X results when we reach the bottom of the current results.</p>
+<h1 id="solution">Solution</h1>
+<p>Let&rsquo;s start with the <code>/search</code> endpoint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># search.py</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> Request, Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> app <span style="color:#f92672">import</span> templates
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> app.router <span style="color:#f92672">import</span> router
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> app.database <span style="color:#f92672">import</span> documents
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@router.get</span>(<span style="color:#e6db74">&#34;/search&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serve_search_results</span>(request: Request, query: str <span style="color:#f92672">=</span> Query(<span style="color:#66d9ef">None</span>), limit: int <span style="color:#f92672">=</span> Query(<span style="color:#ae81ff">10</span>, ge<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>), skip: int <span style="color:#f92672">=</span> Query(<span style="color:#ae81ff">0</span>, ge<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    results <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> documents<span style="color:#f92672">.</span>search_content(query, limit, skip)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    matches <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> result <span style="color:#f92672">in</span> results:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        doc_info <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;title&#34;</span>: result[<span style="color:#e6db74">&#39;title&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;description&#34;</span>: result[<span style="color:#e6db74">&#39;description&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;/docs/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(result[<span style="color:#e6db74">&#34;title&#34;</span>])
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        matches<span style="color:#f92672">.</span>append(doc_info)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    context <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;matches&#34;</span>: matches,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;query&#34;</span>: query,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;limit&#34;</span>: limit,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;skip&#34;</span>: skip
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> templates<span style="color:#f92672">.</span>TemplateResponse(request <span style="color:#f92672">=</span> request, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;searchResults.html&#34;</span>, context <span style="color:#f92672">=</span> context)
+</span></span></code></pre></div><p>The <code>/search</code> endpoint accepts three URL parameters:</p>
+<ul>
+<li><code>query</code>: This is the query we are searching for. In the context of my project, this is the string we are searching for in the contents of the documents. The default value is <code>None</code>.</li>
+<li><code>limit</code>: Match limit for the MongoDB database. When there are more than <code>limit</code> number of matches in the database, only return the first <code>limit</code> matches. The default value is zero and the value given must be greater than or equal to zero.</li>
+<li><code>skip</code>: When there are multiple matches in the database, skip the first <code>skip</code> number of matches. The default value is zero and the value given must be greater than or equal to zero.</li>
+</ul>
+<p>When the endpoint is hit, the first step is to search the database for the provided query. We pass along the search query, the limit, and the skip values to the database module. This operation will give us back a list of documents from the database where the <code>&quot;content&quot;</code> field contains the given query.</p>
+<p>Next, we build the context to be passed to the <code>searchResults.html</code> template. For each document in the results, we build an object with that document&rsquo;s title, description, and URL. The <code>context</code> variable contains the list of match objects, <em>along with our query, limit, and skip values</em>. This is key!!</p>
+<p>Finally, we pass the context to the <code>searchResults.html</code> template and return.</p>
+<p>Next, let&rsquo;s look at <code>searchResults.html</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- searchResults.html --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{% for match in matches %}
+</span></span><span style="display:flex;"><span>    {% if loop.last and loop.index == limit%}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">hx-get</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/search?query={{ query }}&amp;limit={{ limit }}&amp;skip={{ skip + limit }}&#34;</span> <span style="color:#a6e22e">hx-trigger</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;revealed&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">hx-swap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;afterend&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#a6e22e">match</span><span style="color:#960050;background-color:#1e0010">[&#34;</span><span style="color:#a6e22e">url</span><span style="color:#960050;background-color:#1e0010">&#34;]</span> <span style="color:#960050;background-color:#1e0010">}}</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                    {{ match[&#34;title&#34;] }}
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ match[&#34;description&#34;] }}
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    {% else %}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#a6e22e">match</span><span style="color:#960050;background-color:#1e0010">[&#34;</span><span style="color:#a6e22e">url</span><span style="color:#960050;background-color:#1e0010">&#34;]</span> <span style="color:#960050;background-color:#1e0010">}}</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                    {{ match[&#34;title&#34;] }}
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ match[&#34;description&#34;] }}
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    {% endif %}
+</span></span><span style="display:flex;"><span>{% endfor %}
+</span></span></code></pre></div><p>Let&rsquo;s break down what is happening here: For every match in the context, we are building a simple <code>div</code> containing a link to the document and a short description of that document. If the current match is not the last in the list, just build the link and the description. If the current match is the last match in the list and the index is equal to the limit (we will come back to this in a second), then we add an <code>hx-get</code> to that div. The <code>hx-trigger</code> attribute is set to <code>revealed</code>, meaning that the GET request will be fired whenever this <code>div</code> is shown in the client&rsquo;s browser. (Remember we are implementing this as an infinite scroll, so this last div will probably not be initially visible when the results are loaded.)</p>
+<p>In the <code>hx-get</code>, we set the URL to be our search endpoint <code>/search</code> and add our query parameters. The query is simply the same query from the initial (first) request. The limit is also the same limit from the initial (first) request. The skip parameter, we are now setting to be <code>skip + limit</code>.</p>
+<p>Let&rsquo;s work through a quick example to see why we need this. Say we execute a search and there are 100 results. On the first request to the endpoint, our values for the parameters will be:</p>
+<pre tabindex="0"><code>/search?query=somequeryhere&amp;limit=10&amp;skip=0
+</code></pre><p>This will return to us the first 10 results of the 100 results. On the next call to the endpoint, which will be triggered by the <code>hx-get</code> attribute above, the <code>skip</code> value will be 0 + 10, or 10. So we will skip the first 10 results (which have already been rendered in the client&rsquo;s browser) and fetch the next 10.</p>
+<p>Now back to the second condition, <code>loop.index == limit</code>. This additional check is to account for the case where the number of results from the database query is less than the limit. If the limit is 10, but there are only 6 search results, then the 6th element would be given the <code>hx-get</code> attribute without this condition. This means that when the 6th element is revealed, another GET request will be fired off, only to return no results. In practice, this condition isn&rsquo;t strictly necessary, it simply saves an additional call to the server that we know in advance does not need to be made.</p>
+<h1 id="results">Results</h1>
+<p><img src="demo.gif" alt="demo"></p>
+<p>Here is the result! When the search is first executed, the first 10 results get loaded into the client&rsquo;s browser. The user scrolls down, eventually revealing the 10th result in the list, at which point HTMX triggers another GET request to fetch the next 10 results from the database. Those results are then appended to the end of the list. The user continues to scroll, incrementally loading results in sets of 10 until all the results from the search have been presented.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>HTMX has an <a href="https://htmx.org/examples/infinite-scroll/">official page</a> on implemented infinite scroll, but I found the explanation to be lacking in depth, which is what inspired me to create this demo. Hopefully, the fully-implemented example provided in the repo linked above will provide a deeper understanding of the concepts presented.</p>
+<p>Thanks for reading!</p>
+
+
+</body>
+</html>

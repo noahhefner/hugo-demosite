@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Aug 2025 12:44:33 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimizing Docker Images for Python Applications</title>
+      <link>http://localhost:1313/blog/python-containerization/</link>
+      <pubDate>Sun, 31 Aug 2025 12:44:33 -0400</pubDate>
+      <guid>http://localhost:1313/blog/python-containerization/</guid>
+      <description>&lt;p&gt;In my day job, I’ve been spending a lot of time working with Docker containers that run Python applications. Along the way, I found myself digging deep into how to optimize these Docker images. In this article, I’ll walk through the steps I took to build what I think is a solid approach to containerizing Python applications.&lt;/p&gt;&#xA;&lt;p&gt;What does it mean to optimize a Docker image? I see three main focus areas in containerization:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
