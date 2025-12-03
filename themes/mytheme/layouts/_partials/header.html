@@ -1,0 +1,11 @@
+{{ $current := .Page.RelPermalink }}
+
+<nav class="container px-3">
+  <ul>
+    <li><a href="/" class="contrast {{ if eq $current "/" }}fw-bold{{ end }}">Home</a></li>
+    <li><a href="/blog"class="contrast {{ if eq $current "/blog/" }}fw-bold{{ end }}">Blog</a></li>
+    <li><a href="#"class="contrast">Bio</a></li>
+    <li><a href="#" class="contrast">Uses</a></li>
+    <li><a href="#" class="contrast">Connect</a></li>
+  </ul>
+</nav>

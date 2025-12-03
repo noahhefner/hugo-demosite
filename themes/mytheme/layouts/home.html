@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<div class="d-flex flex-column min-vh-100">
+
+  {{ partial "header.html" . }}
+
+  <main class="container d-flex flex-grow-1">
+    <div class="row w-100">
+      <div class="col d-flex justify-content-center align-items-center">
+        <div>
+          <h1>Noah Hefner</h1>
+          <p>Software Engineer</p>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center">
+
+        <figure class="image">
+          {{ $imagePath := .Site.Params.profileImage }}
+          {{ $img := resources.Get $imagePath }}
+          <img src="{{ $img.Permalink | relURL }}" style="width: 18rem;" class="shadow border rounded-circle"
+            alt="Profile">
+
+        </figure>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+{{ end }}

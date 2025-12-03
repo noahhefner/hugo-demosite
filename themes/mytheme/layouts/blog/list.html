@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+  {{ partial "header.html" . }}
+
+  <main class="container">
+      <ul>
+  {{ range .Pages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+  </ul>
+  </main>
+{{ end }}
