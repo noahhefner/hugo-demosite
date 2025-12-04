@@ -1,11 +1,25 @@
 {{ $current := .Page.RelPermalink }}
 
-<nav class="container px-3">
-  <ul>
-    <li><a href="/" class="contrast {{ if eq $current "/" }}fw-bold{{ end }}">Home</a></li>
-    <li><a href="/blog"class="contrast {{ if eq $current "/blog/" }}fw-bold{{ end }}">Blog</a></li>
-    <li><a href="#"class="contrast">Bio</a></li>
-    <li><a href="#" class="contrast">Uses</a></li>
-    <li><a href="#" class="contrast">Connect</a></li>
-  </ul>
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">  
+  <div class="container" style="max-width: 1000px;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link {{ if eq $current "/" }}fw-bold{{ end }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/blog" class="nav-link {{ if eq $current "/blog/" }}fw-bold{{ end }}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Uses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connect</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

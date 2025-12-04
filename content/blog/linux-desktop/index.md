@@ -2,6 +2,7 @@
 title: "An Unexpected [Linux] Journey"
 date: 2025-12-02T02:33:20Z
 cover: "tux.jpg"
+description: My experience using Linux as my daily driver OS.
 ---
 
 ## Introduction
@@ -20,7 +21,7 @@ I soon discovered that there were other Linux flavors outside Ubuntu and develop
 
 ## Distribution vs. Desktop Environment
 
-![Linux Desktop Comparision](/desktops.gif)
+![Linux Desktop Comparision](desktops.gif)
 
 *GNOME, KDE, XFCE, and Cinnamon Desktop Environments*
 
@@ -40,7 +41,7 @@ After distro-hopping for a few years and installing more desktop environments th
 
 For my first "rice", I used Debian 12 as the base distribution and installed [Sway](https://swaywm.org/) for my desktop environment. Sway is in a unique class of desktop environments known as “tiling window managers”. Unlike Windows, macOS, or even most mainstream Linux distros, where application windows “float” around the screen, tiling window managers automatically “tile” or arrange application windows for you. Another unique aspect of tiling window managers is that system navigation (switching between apps and workspaces) is typically driven entirely by keyboard shortcuts. The advantage of using a tiling window manager is that, with a little bit of practice, you can navigate between applications much faster than on a floating window system.
 
-![Typical Tiling Window Manager](/tiling-wm.jpg)
+![Typical Tiling Window Manager](tiling-wm.jpg)
 
 *Tiling Window Manager Example*
 
@@ -50,7 +51,7 @@ Setting up Sway was a fantastic learning experience, but it was also a pain in t
 
 ## A New Hope
 
-![Omarchy Logo](/omarchy-logo.png)
+![Omarchy Logo](omarchy-logo.png)
 
 *Omarchy Logo*
 
@@ -58,7 +59,7 @@ And then, this past summer, DHH released Omarchy. Unlike established Linux distr
 
 Omarchy is built on [Hyprland](https://hypr.land/), a tiling window manager similar to Sway with some additional avenues for customization. What immediately struck me about Omarchy is how robust and cohesive it feels for a tiling window manager setup. It was far from the hack-job Sway configuration I had put together a few years back. The theming system alone is remarkably thorough: cycling through the theme options automatically updates everything from the wallpaper to Neovim to even a [micro-forked version of Chromium](https://world.hey.com/dhh/omarchy-micro-forks-chromium-1287486d). Omarchy’s update utility is just as polished. It’s essentially a bash script that not only updates your system packages, but also pulls and installs the latest configuration files from the Omarchy GitHub repository. There’s even a mechanism for running migration scripts to help users set up new features, if any were included in the updates. DHH and the Omarchy contributors had seemingly created a tiling window manager desktop environment that was actually usable by everyday people.
 
-![Omarchy Screenshot](/omarchy.png)
+![Omarchy Screenshot](omarchy.png)
 
 *Omarchy Desktop*
 
@@ -156,7 +157,7 @@ min-height: 0;
 
 Another idea I took directly from the Omarchy playbook is [web apps](https://learn.omacom.io/2/the-omarchy-manual/63/web-apps). Web apps are desktop shortcuts to your most frequently used sites, such as GitHub, YouTube, and ChatGPT. Launching one of these apps via Fuzzel opens Chromium to the web page for that application. This is a useful workaround for applications that don’t have a native Linux client. I added web apps for YouTube, Proton Mail, Proton Calendar, and the National Weather Service.
 
-![Web Apps](/web-apps.png)
+![Web Apps](web-apps.png)
 
 ### Setup Scripts
 
@@ -182,7 +183,7 @@ Reboot the machine, then run:
 
 ## The Final Result
 
-![Demo](/demo.gif)
+![Demo](demo.gif)
 
 After spending countless hours on this project, I am super happy with the results! To keep things simple and easy to maintain, I didn't stray too far from the defaults for most applications, and I opted for a monochrome color palette across the board. I went with blue as my one "accent color", using it in multiple applications such as the Hyprland active window border, Fuzzel window border, and Mako (notification) window border. Thanks to my templating script, this can be easily changed in the future if I so desire.
 
@@ -200,4 +201,4 @@ Will 2026 *finally* be the year of the Linux desktop? Realistically, probably no
 
 If you're a Windows user (or a macOS user for that matter) who is tired of your computer spying on you without your consent, or you don't care for the AI garbage getting slapped onto every new piece of software, you might want to give Linux a shot! If you have an old laptop lying around, throw a Linux distro like Ubuntu or Fedora on it and take it for a test drive. Maybe even install some open-source applications like LibreOffice or GIMP. The worst that can happen is you lose a few hours learning something new. Who knows, you might end up down the rabbit hole, too.
 
-![Changes You Forever](/changes-you.png)
+![Changes You Forever](changes-you.png)

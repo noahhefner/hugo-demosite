@@ -4,20 +4,20 @@
 
   {{ partial "header.html" . }}
 
-  <main class="container d-flex flex-grow-1">
+  <main class="container d-flex flex-grow-1" style="max-width: 1000px;">
     <div class="row w-100">
-      <div class="col d-flex justify-content-center align-items-center">
+      <div class="col d-flex justify-content-start align-items-center">
         <div>
           <h1>Noah Hefner</h1>
           <p>Software Engineer</p>
         </div>
       </div>
-      <div class="col d-flex justify-content-center align-items-center">
+      <div class="col d-flex justify-content-end align-items-center">
 
         <figure class="image">
           {{ $imagePath := .Site.Params.profileImage }}
           {{ $img := resources.Get $imagePath }}
-          <img src="{{ $img.Permalink | relURL }}" style="width: 18rem;" class="shadow border rounded-circle"
+          <img src="{{ $img.Permalink | relURL }}" class="photo shadow border rounded-circle"
             alt="Profile">
 
         </figure>

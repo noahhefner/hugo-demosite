@@ -5,21 +5,73 @@
 <meta name="viewport" content="width=device-width">
 <title>An Unexpected [Linux] Journey | My New Hugo Site</title>
 
-    <link rel="stylesheet" href="/css/pico.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-utilities.css">
-    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+
+
+
 
       <script src="/js/main.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </head>
 <body class="bg-body-tertiary">
   
-  <div class="container">
-<a href="#">Return</a>
-  <h1>An Unexpected [Linux] Journey</h1>
-  <h2 id="introduction">Introduction</h2>
+
+
+  
+
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">  
+  <div class="container" style="max-width: 1000px;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link ">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/blog" class="nav-link ">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Uses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connect</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container mt-3" style="max-width: 1000px;">
+    <h1>An Unexpected [Linux] Journey</h1>
+    <p>2025-12-02</p>
+
+    <div class="flex-shrink-0">
+  <div class="square">
+<img src="/blog/linux-desktop/tux.jpg"
+    class="mb-3 w-100"
+     alt="An Unexpected [Linux] Journey"
+    title="Cover Image" />
+  </div>
+    
+  </div>
+
+
+    <div class="content-wrapper">
+    <h2 id="introduction">Introduction</h2>
 <p>“<a href="https://yearofthelinuxdesktop.net/">The year of the Linux desktop</a>” is somewhat of a running joke in the Linux community. It refers to the idea that one day, Linux will finally establish itself as a mainstream desktop operating system alongside Windows and macOS for everyday computer users. But the prophecy has not yet been fulfilled—thanks to limited support for popular software, a fragmented landscape of desktop environments, and minimal adoption from computer manufacturers. All of this has kept Linux just out of reach for the average computer user.</p>
 <p>But Linux has been in the news several times in the past few years, and it feels like the tide might actually be turning. Valve proved—through the <a href="https://www.theverge.com/pc-gaming/618709/steam-deck-3-year-anniversary-handheld-gaming-shipments-idc?ref=birchtree.me">massive success of the Steam Deck</a>—that Linux doesn’t have to be intimidating; they put a full-fledged Linux desktop in the hands of millions of gamers, many of whom probably didn’t even realize it. More recently, <a href="https://dhh.dk/">DHH</a> has helped generate enthusiasm for Linux through the release of <a href="https://omarchy.org/">Omarchy</a>, a beautiful, easy-to-install Arch Linux configuration geared towards developers. Just last week, the team behind Zorin OS disclosed that its Windows-like Linux distribution has <a href="https://www.windowscentral.com/microsoft/windows-10/windows-10-retirement-pushes-780-000-users-to-linux-as-zorin-os-hits-1m-downloads">gained almost a million new users in the last month</a> thanks to Windows 10 reaching end of life. With Linux adoption rising at such a rapid clip, could 2026 be the year of the Linux desktop?</p>
 <h2 id="first-contact-with-desktop-linux">First Contact with Desktop Linux</h2>
@@ -27,7 +79,7 @@
 <p>After playing with my new toy for a while, I quickly figured out the answer to that question: software compatibility, or more accurately, the lack thereof. I was a bit disappointed to discover that it could not run the Microsoft Office suite (which I needed for school work) or play most of my Steam games. Despite these challenges, I couldn&rsquo;t get over the fact that this operating system was completely free. I was perfectly content to use it for tikering, web browsing, and coding video games with Python.</p>
 <p>I soon discovered that there were other Linux flavors outside Ubuntu and developed a habit of <a href="https://informatecdigital.com/en/What-is-distro-hopping-in-Linux--why-and-when-to-do-it/">distro hopping</a>. Distro hopping is Linux slang for constantly installing different Linux distributions on your computer. It is common for Linux newcomers to become distro hoppers, simply because there are a ton of unique options to choose from! By changing your Linux distribution, you can completely change the appearance and functionality of your system. With so many different ways to experience Linux, it&rsquo;s hard to resist trying them all to see which one you like best.</p>
 <h2 id="distribution-vs-desktop-environment">Distribution vs. Desktop Environment</h2>
-<p><img src="/desktops.gif" alt="Linux Desktop Comparision"></p>
+<p><img src="desktops.gif" alt="Linux Desktop Comparision"></p>
 <p><em>GNOME, KDE, XFCE, and Cinnamon Desktop Environments</em></p>
 <p>Before the next section, it is important to understand the difference between a Linux distribution and a Linux desktop environment. Let&rsquo;s start with the distribution (or distro). My definition of a Linux distribution is a software suite that includes three key components:</p>
 <ol>
@@ -40,16 +92,16 @@
 <h2 id="down-the-rabbit-hole">Down The Rabbit Hole</h2>
 <p>After distro-hopping for a few years and installing more desktop environments than I could count, I discovered the world of <a href="https://dev.to/nucleofusion/complete-beginners-guide-to-linux-ricing-4i0e">Linux ricing</a>. In a nutshell, Linux “ricing” (no idea where that term came from) is the practice of heavily customizing the look and feel of your Linux desktop environment to make it uniquely stylish or visually impressive. To use an analogy that predates my existence, it&rsquo;s sort of like customizing your MySpace profile page, except instead of a social media site, you’re customizing an entire desktop experience. Ricing goes way beyond just changing your icon theme and setting a cool background-it&rsquo;s deep in big nerd territory, requiring extensive knowledge of Linux systems and a willingness to tinker and troubleshoot for hours on end.</p>
 <p>For my first &ldquo;rice&rdquo;, I used Debian 12 as the base distribution and installed <a href="https://swaywm.org/">Sway</a> for my desktop environment. Sway is in a unique class of desktop environments known as “tiling window managers”. Unlike Windows, macOS, or even most mainstream Linux distros, where application windows “float” around the screen, tiling window managers automatically “tile” or arrange application windows for you. Another unique aspect of tiling window managers is that system navigation (switching between apps and workspaces) is typically driven entirely by keyboard shortcuts. The advantage of using a tiling window manager is that, with a little bit of practice, you can navigate between applications much faster than on a floating window system.</p>
-<p><img src="/tiling-wm.jpg" alt="Typical Tiling Window Manager"></p>
+<p><img src="tiling-wm.jpg" alt="Typical Tiling Window Manager"></p>
 <p><em>Tiling Window Manager Example</em></p>
 <p>Tiling window managers like Sway are extremely minimal by design. You won&rsquo;t find any preinstalled applications, graphical utilities, or built-in conveniences that you’d normally expect from a traditional desktop environment. They are geared towards power users who want to hand-select every piece of software that gets installed on their machine. Everything, and I mean <em>everything</em>, that makes up the system needs to be installed and configured manually. Even fundamental components—like an application launcher, notification daemon, network manager, screenshot tool, and sometimes even basic fonts—must be installed and configured by hand before the system feels usable. I spent hours upon hours picking packages and crafting config files until my system was aesthetically pleasing, performant, and tailored exactly to my needs.</p>
 <p>Setting up Sway was a fantastic learning experience, but it was also a pain in the neck sometimes. There were several occasions where I would take my laptop to a coffee shop to get some work done, only to spend the first 30 minutes troubleshooting why my WiFi wasn&rsquo;t working, or worse, why my system wouldn’t boot. And it wasn’t just a few times; these little hiccups kept happening over and over again. After a while, I got fed up with Sway, and decided that it was simply too much effort to maintain. It also seemed wrong to force myself to use a system that, despite its beauty, was so fragile and frustrating. (Looking back now, almost all of the problems I faced could be attributed to my lack of experience. As a beginner, you don&rsquo;t know what you don&rsquo;t know, which makes troubleshooting these issues extremely difficult.) Feeling defeated, I wiped my system and installed bone stock Fedora with the GNOME desktop environment. For the better part of two years, Fedora and GNOME provided me with a stable desktop experience for my everyday computer tasks.</p>
 <h2 id="a-new-hope">A New Hope</h2>
-<p><img src="/omarchy-logo.png" alt="Omarchy Logo"></p>
+<p><img src="omarchy-logo.png" alt="Omarchy Logo"></p>
 <p><em>Omarchy Logo</em></p>
 <p>And then, this past summer, DHH released Omarchy. Unlike established Linux distros like Ubuntu and Fedora, Omarchy isn’t a “distro” in the traditional sense. Instead, it’s essentially an Arch Linux install bundled with DHH’s favorite applications and configuration files-and an absolute boat-load of bash scripts. A longtime macOS user, DHH only made the switch to Linux earlier this year, but his enthusiasm for the OS has been infectious. Through <a href="https://www.youtube.com/watch?v=ljGPvgMPOn8">interviews</a>, <a href="https://lexfridman.com/dhh-david-heinemeier-hansson">podcasts</a>, and <a href="https://world.hey.com/dhh/omarchy-is-out-4666dd31">blog posts</a>, he has been documenting his Linux experience and delight in building Omarchy, even going so far as to make it the default system configuration for all employees at his company, 37Signals.</p>
 <p>Omarchy is built on <a href="https://hypr.land/">Hyprland</a>, a tiling window manager similar to Sway with some additional avenues for customization. What immediately struck me about Omarchy is how robust and cohesive it feels for a tiling window manager setup. It was far from the hack-job Sway configuration I had put together a few years back. The theming system alone is remarkably thorough: cycling through the theme options automatically updates everything from the wallpaper to Neovim to even a <a href="https://world.hey.com/dhh/omarchy-micro-forks-chromium-1287486d">micro-forked version of Chromium</a>. Omarchy’s update utility is just as polished. It’s essentially a bash script that not only updates your system packages, but also pulls and installs the latest configuration files from the Omarchy GitHub repository. There’s even a mechanism for running migration scripts to help users set up new features, if any were included in the updates. DHH and the Omarchy contributors had seemingly created a tiling window manager desktop environment that was actually usable by everyday people.</p>
-<p><img src="/omarchy.png" alt="Omarchy Screenshot"></p>
+<p><img src="omarchy.png" alt="Omarchy Screenshot"></p>
 <p><em>Omarchy Desktop</em></p>
 <p>At launch, Omarchy’s installation process was a bit unusual. You would first install Arch Linux manually using the <code>archinstall</code> utility, then boot into the system, download the Omarchy install script, and run it. The script handled everything—fetching Omarchy’s assets, installing its applications, and configuring the system. After it finished, a simple reboot brought you into a fully set-up desktop environment. This workflow has since been replaced with an ISO, but I appreciated the scripted approach because the bash files were easy to reason about and made it clear exactly what was being installed and how everything was configured.</p>
 <p>Omarchy demonstrates that a highly customized tiling window manager Linux setup doesn’t have to be delicate. With enough care, it is possible to build a desktop that’s both beautiful and reliable. Although Omarchy wasn’t the right daily driver for me, it had reignited my interest in Linux ricing and inspired me to give tiling window managers another go. I loved the clarity and reproducibility that came from Omarchy’s bash-script centric approach, and I wanted to apply that same system to my new rice.</p>
@@ -112,7 +164,7 @@ font=CaskaydiaCove Nerd Font:size=16
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="web-apps">Web Apps</h3>
 <p>Another idea I took directly from the Omarchy playbook is <a href="https://learn.omacom.io/2/the-omarchy-manual/63/web-apps">web apps</a>. Web apps are desktop shortcuts to your most frequently used sites, such as GitHub, YouTube, and ChatGPT. Launching one of these apps via Fuzzel opens Chromium to the web page for that application. This is a useful workaround for applications that don’t have a native Linux client. I added web apps for YouTube, Proton Mail, Proton Calendar, and the National Weather Service.</p>
-<p><img src="/web-apps.png" alt="Web Apps"></p>
+<p><img src="web-apps.png" alt="Web Apps"></p>
 <h3 id="setup-scripts">Setup Scripts</h3>
 <p>With my packages and applications sorted, I wrote (or stole) a few bash scripts to set everything up on a fresh Arch install, just like Omarchy did. I broke the process into five separate scripts, mostly to make debugging and testing easier. I ended up with the following workflow:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Installs yay, an AUR helper</span>
@@ -127,7 +179,7 @@ font=CaskaydiaCove Nerd Font:size=16
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Install flatpaks + flatpak configurations</span>
 </span></span><span style="display:flex;"><span>./post-reboot.sh
 </span></span></code></pre></div><h2 id="the-final-result">The Final Result</h2>
-<p><img src="/demo.gif" alt="Demo"></p>
+<p><img src="demo.gif" alt="Demo"></p>
 <p>After spending countless hours on this project, I am super happy with the results! To keep things simple and easy to maintain, I didn&rsquo;t stray too far from the defaults for most applications, and I opted for a monochrome color palette across the board. I went with blue as my one &ldquo;accent color&rdquo;, using it in multiple applications such as the Hyprland active window border, Fuzzel window border, and Mako (notification) window border. Thanks to my templating script, this can be easily changed in the future if I so desire.</p>
 <p>I am particularly excited about the quick access settings I added to my Waybar config (shown in the gif above). Clicking the Bluetooth icon opens <a href="https://github.com/linuxmint/blueberry">Blueberry</a>, a GUI developed by the Linux Mint team for managing connected Bluetooth devices. Clicking the audio indicator opens <a href="https://github.com/saivert/pwvucontrol">Pipewire Volume Control</a>, a GUI for managing audio settings. Pipewire Volume Control is handy when you need to quickly change the audio output if you have several audio devices connected. Clicking the networking indicator opens <code>nmtui</code>, a TUI that comes pre-installed with Network Manager for connecting to WiFi. Finally, clicking the power icon opens a custom power menu, with options to logout, suspend, reboot, and shutdown the system. In aggregate, these little additions drastically improve the system&rsquo;s usability.</p>
 <p>I’ve been running this configuration on my personal computers for about three weeks now, and it has been an absolute joy to use. Since Linux is so lightweight, older machines like my Lenovo Thinkpad T430, which I recently picked up off eBay, have no problems running this setup. In fact, this entire article was written entirely on the T430, and I’ll be writing another article specifically about this machine soon!</p>
@@ -136,8 +188,9 @@ font=CaskaydiaCove Nerd Font:size=16
 <p>There’s a saying in the Linux community that “<a href="https://www.youtube.com/watch?v=Qt2GkwwypDw">Linux is only free if you don’t value your time.</a>” While I do think that saying is becoming less true as time goes on, it was absolutely true for this project. I spent hours upon hours learning, researching, watching YouTube videos, reading forums, writing scripts, configuring files, and fixing bugs, just to reach a state that is, admittedly, probably still less stable than Windows or macOS. Not to mention, I will need to perform ongoing maintenance on the configuration as packages get updated. (Literally a few days after setting up my T430, Hyprland pushed a breaking change that required an update to a config file.) As someone who makes my living with a keyboard and mouse, I don&rsquo;t mind that extra bit of friction. Dare I say, I actually <em>enjoy</em> it. But I think it goes without saying that this project is certainly not for everyone, especially if you don&rsquo;t enjoy troubleshooting computers.</p>
 <p>Will 2026 <em>finally</em> be the year of the Linux desktop? Realistically, probably not. However, I do find it fascinating that while Linux is gaining momentum, Windows is simultaneously getting worse by the day as Microsoft pushes out one anti-consumer update after another. Just this year, Microsoft has <a href="https://www.pcguide.com/news/windows-11-update-removes-known-local-account-workarounds-so-now-you-definitely-need-to-sign-in-with-microsoft/">patched multiple loopholes</a>, which allowed Windows 11 to be installed without a Microsoft account under the guise of &ldquo;security improvements&rdquo;, requiring users to hand over their personal information to Microsoft just to use the machine that they <strong>already paid for</strong>. And let&rsquo;s not forget how Microsoft pushed millions of otherwise perfectly functional computers into obsolescence with completely unreasonable and seemingly arbitrary Windows 11 <a href="https://www.ghacks.net/2024/12/05/windows-11-microsoft-sticks-to-system-requirements-despite-sluggish-conversion/">minimum system requirements</a>. But perhaps Microsoft&rsquo;s worst offense of all is their insistence on injecting AI into every aspect of their OS. The disastrous launch of Recall made it abundantly clear that people do not, in fact, want AI spyware running on their computer at all times. The dumpster fire that is modern Windows has inadvertently become an excellent advertisement for desktop Linux.</p>
 <p>If you&rsquo;re a Windows user (or a macOS user for that matter) who is tired of your computer spying on you without your consent, or you don&rsquo;t care for the AI garbage getting slapped onto every new piece of software, you might want to give Linux a shot! If you have an old laptop lying around, throw a Linux distro like Ubuntu or Fedora on it and take it for a test drive. Maybe even install some open-source applications like LibreOffice or GIMP. The worst that can happen is you lose a few hours learning something new. Who knows, you might end up down the rabbit hole, too.</p>
-<p><img src="/changes-you.png" alt="Changes You Forever"></p>
+<p><img src="changes-you.png" alt="Changes You Forever"></p>
 
+    </div>
   </div>
 
 </body>

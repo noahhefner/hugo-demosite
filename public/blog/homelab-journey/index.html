@@ -5,20 +5,65 @@
 <meta name="viewport" content="width=device-width">
 <title>Homelab Journey | My New Hugo Site</title>
 
-    <link rel="stylesheet" href="/css/pico.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-utilities.css">
-    <link rel="stylesheet" href="/css/bootstrap-grid.css">
     <link rel="stylesheet" href="/css/styles.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 
       <script src="/js/main.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </head>
 <body class="bg-body-tertiary">
   
-  <h1>Homelab Journey</h1>
 
-  <h2 id="humble-beginnings">Humble Beginnings</h2>
+
+  
+
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">  
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link ">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/blog" class="nav-link ">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Uses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connect</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container mt-3" style="max-width: 1000px;">
+    <h1>Homelab Journey</h1>
+    <p>2024-01-10</p>
+
+    
+
+
+    <div class="content-wrapper">
+    <h2 id="humble-beginnings">Humble Beginnings</h2>
 <p>My homelab journey started around 3 years ago while I was an undergrad studying computer science. I had gotten fed up with paying Google every month just to store my photos and files. I wanted a solution to store all my photos and files locally. As a student, I had no money at the time, so I purchased a Raspberry Pi. Following <a href="https://www.youtube.com/watch?v=y4dtcr2NL5M">an excellent guide by Jay LaCroix from on Learn Linux TV</a>, I soon had my very own personal cloud. I used Google’s takeout feature to exfiltrate all my digial assets. After importing all my data to Nextcloud, I had accomplished the original goal: <em>get my data under my own roof</em>.</p>
 <p>I was content with my creation. I had a tiny, power-efficient server that housed all my photos, files, contacts, and calendars. Setting up Nextcloud taught me a lot about Linux servers and basic networking concepts. It also opened me up to the world of self-hosting and introduced me to the vibrant homelab community. I had originally only planned to run Nextcloud, but I quickly learned that there is <em>so much more</em> to explore.</p>
 <h2 id="docker">Docker</h2>
@@ -57,6 +102,8 @@
 </ul>
 <p>If you made it all the way through this article, thanks for reading! I hope to produce more technology related writing like this in the future. I plan to post updates on my new hardware and services as the homelab continues to grow.</p>
 
+    </div>
+  </div>
 
 </body>
 </html>

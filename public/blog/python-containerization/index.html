@@ -5,20 +5,73 @@
 <meta name="viewport" content="width=device-width">
 <title>Optimizing Docker Images for Python Applications | My New Hugo Site</title>
 
-    <link rel="stylesheet" href="/css/pico.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-utilities.css">
-    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+
+
+
 
       <script src="/js/main.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </head>
 <body class="bg-body-tertiary">
   
-  <h1>Optimizing Docker Images for Python Applications</h1>
 
-  <p>In my day job, I’ve been spending a lot of time working with Docker containers that run Python applications. Along the way, I found myself digging deep into how to optimize these Docker images. In this article, I’ll walk through the steps I took to build what I think is a solid approach to containerizing Python applications.</p>
+
+  
+
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">  
+  <div class="container" style="max-width: 1000px;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link ">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/blog" class="nav-link ">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Uses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connect</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container mt-3" style="max-width: 1000px;">
+    <h1>Optimizing Docker Images for Python Applications</h1>
+    <p>2025-08-31</p>
+
+    <div class="flex-shrink-0">
+  <div class="square">
+<img src="/blog/python-containerization/docker_x_python.drawio.png"
+    class="mb-3 w-100"
+     alt="Optimizing Docker Images for Python Applications"
+    title="Cover Image" />
+  </div>
+    
+  </div>
+
+
+    <div class="content-wrapper">
+    <p>In my day job, I’ve been spending a lot of time working with Docker containers that run Python applications. Along the way, I found myself digging deep into how to optimize these Docker images. In this article, I’ll walk through the steps I took to build what I think is a solid approach to containerizing Python applications.</p>
 <p>What does it mean to optimize a Docker image? I see three main focus areas in containerization:</p>
 <ol>
 <li><strong>Build Time</strong>: How long it takes to build the container image. Longer build times make local development cumbersome and can slow down CI/CD pipelines.</li>
@@ -479,6 +532,8 @@
 <li>Run as a <strong>non-root user</strong> to reduce the risk of privilege escalation if the container is compromised.</li>
 </ul>
 
+    </div>
+  </div>
 
 </body>
 </html>

@@ -19,7 +19,8 @@
   <div class="flex-shrink-0">
   <div class="square">
 <img src="{{ $cover }}"
-    alt="{{ .Title | plainify | default " " }}"
+    class="mb-3 w-100"
+     alt="{{ .Title | plainify | default " " }}"
     title="{{ .Params.CoverCredit |plainify|default "Cover Image" }}" />
   </div>
     
