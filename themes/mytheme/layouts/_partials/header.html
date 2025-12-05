@@ -14,10 +14,10 @@
           <a href="/blog" class="nav-link {{ if eq $current "/blog/" }}fw-bold{{ end }}">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Uses</a>
+          <a class="nav-link {{ if eq $current "/uses/" }}fw-bold{{ end }}" href="/uses/">Uses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Connect</a>
+          <a class="nav-link {{ if eq $current "/connect/" }}fw-bold{{ end }}" href="/connect/">Connect</a>
         </li>
       </ul>
     </div>
