@@ -1,24 +1,25 @@
 {{ define "main" }}
-
   {{ partial "header.html" . }}
 
+
   <main class="container mt-3" style="max-width: 1000px;">
-   
-      {{ range .Pages }}
+    {{ range .Pages }}
       <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">
-            <a 
-              class="link-underline link-underline-opacity-0" 
+            <a
+              class="link-underline link-underline-opacity-0"
               href="{{ .RelPermalink }}"
             >
               {{ .Title }}
             </a>
           </h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{ .Date | time.Format "2006-01-02" }}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            {{ .Date | time.Format "2006-01-02" }}
+          </h6>
           <p class="card-text">{{ .Description }}</p>
         </div>
       </div>
-      {{ end }}
+    {{ end }}
   </main>
 {{ end }}

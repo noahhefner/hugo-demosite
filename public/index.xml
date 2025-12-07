@@ -43,5 +43,19 @@
       <guid>http://localhost:1313/blog/homelab-journey/</guid>
       <description>&lt;h2 id=&#34;humble-beginnings&#34;&gt;Humble Beginnings&lt;/h2&gt;&#xA;&lt;p&gt;My homelab journey started around 3 years ago while I was an undergrad studying computer science. I had gotten fed up with paying Google every month just to store my photos and files. I wanted a solution to store all my photos and files locally. As a student, I had no money at the time, so I purchased a Raspberry Pi. Following &lt;a href=&#34;https://www.youtube.com/watch?v=y4dtcr2NL5M&#34;&gt;an excellent guide by Jay LaCroix from on Learn Linux TV&lt;/a&gt;, I soon had my very own personal cloud. I used Google’s takeout feature to exfiltrate all my digial assets. After importing all my data to Nextcloud, I had accomplished the original goal: &lt;em&gt;get my data under my own roof&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Connect</title>
+      <link>http://localhost:1313/connect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/connect/</guid>
+      <description>&lt;p&gt;Connect content&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Uses</title>
+      <link>http://localhost:1313/uses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/uses/</guid>
+      <description>&lt;p&gt;Uses content&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

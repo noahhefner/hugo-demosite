@@ -1,7 +1,6 @@
 {{ define "main" }}
-
-
   {{ partial "header.html" . }}
+
 
   <div class="container mt-3" style="max-width: 1000px;">
     <h1>{{ .Title }}</h1>
@@ -9,8 +8,9 @@
 
     {{ partial "cover.html" . }}
 
+
     <div class="content-wrapper">
-    {{ .Content }}
+      {{ .Content }}
     </div>
   </div>
 {{ end }}
