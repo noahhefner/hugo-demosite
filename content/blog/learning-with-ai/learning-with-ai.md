@@ -15,17 +15,16 @@ Let's kick off the conversation with a hot take:
 
 This is obviously a click-bait overexageration, but the underlying idea here is that by giving students access to Copilot, they are missing out on the "try, fail, repeat" learning experience. There is no replacement for spending hours upon hours trying out different solutuions, understanding why each does not work, and then finally arriving at a working program. Copilot is like the answers at the back of your 8th grade algebra textbook. It will get you an A on your homework assignments, but you will fail the exam because you lack the understanding of how to get those answers.
 
-
-
 Prime followed that tweet up with a more nuanced take:
 
 (more nuanced take here)
 
-I would actually argue that this Copilot issue is not new. 
+I would actually argue that this Copilot issue is not new.
 
 # Ideas
 
 ## AI in Education
+
 - [Dreams of Code Video](https://www.youtube.com/watch?v=Wap2tkgaT1Q)
 - [Prime Tweet](https://twitter.com/ThePrimeagen/status/1775502450725617739)
 - [More nuanced Prime Tweet](https://twitter.com/ThePrimeagen/status/1775586473200267426)
@@ -33,6 +32,7 @@ I would actually argue that this Copilot issue is not new.
 - but maybe old people would say the same thing about me and having internet access. in the same way that the internet greatly reduced the time it took to troubleshoot and debug, chatbots also greatly reduced the time it takes to troubleshoot and debug code. but already in educational institutions, we encourage students not to look up the answer on stack overflow / google before attempting to solve the problem. the whole point of leetcode is to develop your programming problem solving skills without using the internet. chatgpt is like stack overflow on steroids. use it when you need it, use it as a tool, do not use it as a crutch.
 
 ## AI as a learning tool
+
 - AI is simply a better google
 - allowed me to develop faster
 - inspired me to work on side projects more

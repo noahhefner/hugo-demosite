@@ -106,11 +106,8 @@
     <h1>Implementing Infinite Scroll with HTMX, Python, and MongoDB</h1>
     <p>2024-05-04</p>
 
-    
-
-
-
     <div class="content-wrapper">
+      
       <p>The source code for this demo is available <a href="https://github.com/noahhefner/website-code/tree/main/infinite-scroll-htmx">here</a>. Instructions for setting up the project are in the README.</p>
 <h1 id="context">Context</h1>
 <p>I am working on a project at my day job where we are building a documentation site for a very large and complex software system. We have over 20,000 technical documents outlining how the software works. Our customer needs a way to search, browse, and update these documents efficiently. Our current proposed solution uses a Python/FastAPI web server, MongoDB to store the document data, and HTMX to handle frontend updates. (I am not able to make my work repo publicly available, so I have pulled out only the essential logic portions for this demo.) The purpose of this article is to show how we have implemented the &ldquo;infinite scroll&rdquo; functionality for the document search results page with our chosen tooling. The ideas, however, should be easily adaptable to other languages (as long you&rsquo;re using HTMX.) <em>Familiarity with HTMX is recommended before reading this article.</em></p>

@@ -23,7 +23,7 @@ I soon discovered that there were other Linux flavors outside Ubuntu and develop
 
 ![Linux Desktop Comparision](desktops.gif)
 
-*GNOME, KDE, XFCE, and Cinnamon Desktop Environments*
+_GNOME, KDE, XFCE, and Cinnamon Desktop Environments_
 
 Before the next section, it is important to understand the difference between a Linux distribution and a Linux desktop environment. Let's start with the distribution (or distro). My definition of a Linux distribution is a software suite that includes three key components:
 
@@ -31,7 +31,7 @@ Before the next section, it is important to understand the difference between a 
 2. A package manager (ie, a piece of software that manages additional software packages)
 3. Some preinstalled packages
 
-Most mainstream Linux distros are supported by some sort of governing body. Broadly speaking, this governing body is responsible for maintaining a repository of packages (software) for the distro and operating the servers required to *distribute* that software to the end users. Some distros are backed by corporate entities such as Fedora, which is supported by Red Hat. Other distros like Debian adopt a more [community-centered philosophy](https://www.debian.org/intro/philosophy), where thousands of individual contributors bear the collective burden of maintenance and development. 
+Most mainstream Linux distros are supported by some sort of governing body. Broadly speaking, this governing body is responsible for maintaining a repository of packages (software) for the distro and operating the servers required to _distribute_ that software to the end users. Some distros are backed by corporate entities such as Fedora, which is supported by Red Hat. Other distros like Debian adopt a more [community-centered philosophy](https://www.debian.org/intro/philosophy), where thousands of individual contributors bear the collective burden of maintenance and development.
 
 A Linux desktop environment is simply a subset of those preinstalled packages in a distro that provide all the graphical functions for the system. The desktop environment provides the necessary software for managing windows, facilitating user interactions, and running applications. Desktop environments often come pre-loaded with commonly used software, such as a file manager, calendar, calculator, office suite, etc. Most of the visually observable differences between distributions are really in the desktop environment, not the underlying distro (though there are certainly differences between distributions). This realization unlocks a whole new approach to customizing Linux, since most desktop environments can be installed on most distributions.
 
@@ -43,9 +43,9 @@ For my first "rice", I used Debian 12 as the base distribution and installed [Sw
 
 ![Typical Tiling Window Manager](tiling-wm.jpg)
 
-*Tiling Window Manager Example*
+_Tiling Window Manager Example_
 
-Tiling window managers like Sway are extremely minimal by design. You won't find any preinstalled applications, graphical utilities, or built-in conveniences that you’d normally expect from a traditional desktop environment. They are geared towards power users who want to hand-select every piece of software that gets installed on their machine. Everything, and I mean *everything*, that makes up the system needs to be installed and configured manually. Even fundamental components—like an application launcher, notification daemon, network manager, screenshot tool, and sometimes even basic fonts—must be installed and configured by hand before the system feels usable. I spent hours upon hours picking packages and crafting config files until my system was aesthetically pleasing, performant, and tailored exactly to my needs.
+Tiling window managers like Sway are extremely minimal by design. You won't find any preinstalled applications, graphical utilities, or built-in conveniences that you’d normally expect from a traditional desktop environment. They are geared towards power users who want to hand-select every piece of software that gets installed on their machine. Everything, and I mean _everything_, that makes up the system needs to be installed and configured manually. Even fundamental components—like an application launcher, notification daemon, network manager, screenshot tool, and sometimes even basic fonts—must be installed and configured by hand before the system feels usable. I spent hours upon hours picking packages and crafting config files until my system was aesthetically pleasing, performant, and tailored exactly to my needs.
 
 Setting up Sway was a fantastic learning experience, but it was also a pain in the neck sometimes. There were several occasions where I would take my laptop to a coffee shop to get some work done, only to spend the first 30 minutes troubleshooting why my WiFi wasn't working, or worse, why my system wouldn’t boot. And it wasn’t just a few times; these little hiccups kept happening over and over again. After a while, I got fed up with Sway, and decided that it was simply too much effort to maintain. It also seemed wrong to force myself to use a system that, despite its beauty, was so fragile and frustrating. (Looking back now, almost all of the problems I faced could be attributed to my lack of experience. As a beginner, you don't know what you don't know, which makes troubleshooting these issues extremely difficult.) Feeling defeated, I wiped my system and installed bone stock Fedora with the GNOME desktop environment. For the better part of two years, Fedora and GNOME provided me with a stable desktop experience for my everyday computer tasks.
 
@@ -53,7 +53,7 @@ Setting up Sway was a fantastic learning experience, but it was also a pain in t
 
 ![Omarchy Logo](omarchy-logo.png)
 
-*Omarchy Logo*
+_Omarchy Logo_
 
 And then, this past summer, DHH released Omarchy. Unlike established Linux distros like Ubuntu and Fedora, Omarchy isn’t a “distro” in the traditional sense. Instead, it’s essentially an Arch Linux install bundled with DHH’s favorite applications and configuration files-and an absolute boat-load of bash scripts. A longtime macOS user, DHH only made the switch to Linux earlier this year, but his enthusiasm for the OS has been infectious. Through [interviews](https://www.youtube.com/watch?v=ljGPvgMPOn8), [podcasts](https://lexfridman.com/dhh-david-heinemeier-hansson), and [blog posts](https://world.hey.com/dhh/omarchy-is-out-4666dd31), he has been documenting his Linux experience and delight in building Omarchy, even going so far as to make it the default system configuration for all employees at his company, 37Signals.
 
@@ -61,7 +61,7 @@ Omarchy is built on [Hyprland](https://hypr.land/), a tiling window manager simi
 
 ![Omarchy Screenshot](omarchy.png)
 
-*Omarchy Desktop*
+_Omarchy Desktop_
 
 At launch, Omarchy’s installation process was a bit unusual. You would first install Arch Linux manually using the `archinstall` utility, then boot into the system, download the Omarchy install script, and run it. The script handled everything—fetching Omarchy’s assets, installing its applications, and configuring the system. After it finished, a simple reboot brought you into a fully set-up desktop environment. This workflow has since been replaced with an ISO, but I appreciated the scripted approach because the bash files were easy to reason about and made it clear exactly what was being installed and how everything was configured.
 
@@ -78,7 +78,7 @@ For my new rice, I wanted to start totally from scratch. The first step was to s
 
 ![hyprland](hyprland.jpg)
 
-Next, I needed to choose a tiling window manager. While I could have gone back to Sway, I decided on Hyprland, primarily due to its excellent documentation. The Hyprland Wiki is a fantastic guide, not just for configuring Hyprland, but for assembling a complete desktop environment. [The "Useful Utilities" pages](https://wiki.hypr.land/Useful-Utilities/) are a great example. These pages cover all the additional bits that most users will *probably* want to configure in addition to Hyprland, such as a notification daemon, a status bar, or a desktop wallpaper. This was the sort of guide I wish I had years ago when I was first starting out with Sway. For the tiling window manager veterans, this all seems obvious, but for relative newcomers like myself, these notes are incredibly useful.
+Next, I needed to choose a tiling window manager. While I could have gone back to Sway, I decided on Hyprland, primarily due to its excellent documentation. The Hyprland Wiki is a fantastic guide, not just for configuring Hyprland, but for assembling a complete desktop environment. [The "Useful Utilities" pages](https://wiki.hypr.land/Useful-Utilities/) are a great example. These pages cover all the additional bits that most users will _probably_ want to configure in addition to Hyprland, such as a notification daemon, a status bar, or a desktop wallpaper. This was the sort of guide I wish I had years ago when I was first starting out with Sway. For the tiling window manager veterans, this all seems obvious, but for relative newcomers like myself, these notes are incredibly useful.
 
 ### Packages and Applications
 
@@ -129,10 +129,10 @@ font={{ FONT }}:size=16
 ```css
 /* (Waybar) style.jinja.css */
 * {
-font-family: "{{ FONT }}", Roboto, Helvetica;
-font-size: 14px;
-font-weight: 600;
-min-height: 0;
+  font-family: "{{ FONT }}", Roboto, Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 0;
 }
 ```
 
@@ -146,10 +146,10 @@ font=CaskaydiaCove Nerd Font:size=16
 ```css
 /* (Waybar) style.jinja.css */
 * {
-font-family: "CaskaydiaCove Nerd Font", Roboto, Helvetica;
-font-size: 14px;
-font-weight: 600;
-min-height: 0;
+  font-family: "CaskaydiaCove Nerd Font", Roboto, Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 0;
 }
 ```
 
@@ -195,9 +195,9 @@ I also want to give a massive shout-out to Omarchy for providing a solid referen
 
 ## Closing Thoughts
 
-There’s a saying in the Linux community that “[Linux is only free if you don’t value your time.](https://www.youtube.com/watch?v=Qt2GkwwypDw)” While I do think that saying is becoming less true as time goes on, it was absolutely true for this project. I spent hours upon hours learning, researching, watching YouTube videos, reading forums, writing scripts, configuring files, and fixing bugs, just to reach a state that is, admittedly, probably still less stable than Windows or macOS. Not to mention, I will need to perform ongoing maintenance on the configuration as packages get updated. (Literally a few days after setting up my T430, Hyprland pushed a breaking change that required an update to a config file.) As someone who makes my living with a keyboard and mouse, I don't mind that extra bit of friction. Dare I say, I actually *enjoy* it. But I think it goes without saying that this project is certainly not for everyone, especially if you don't enjoy troubleshooting computers.
+There’s a saying in the Linux community that “[Linux is only free if you don’t value your time.](https://www.youtube.com/watch?v=Qt2GkwwypDw)” While I do think that saying is becoming less true as time goes on, it was absolutely true for this project. I spent hours upon hours learning, researching, watching YouTube videos, reading forums, writing scripts, configuring files, and fixing bugs, just to reach a state that is, admittedly, probably still less stable than Windows or macOS. Not to mention, I will need to perform ongoing maintenance on the configuration as packages get updated. (Literally a few days after setting up my T430, Hyprland pushed a breaking change that required an update to a config file.) As someone who makes my living with a keyboard and mouse, I don't mind that extra bit of friction. Dare I say, I actually _enjoy_ it. But I think it goes without saying that this project is certainly not for everyone, especially if you don't enjoy troubleshooting computers.
 
-Will 2026 *finally* be the year of the Linux desktop? Realistically, probably not. However, I do find it fascinating that while Linux is gaining momentum, Windows is simultaneously getting worse by the day as Microsoft pushes out one anti-consumer update after another. Just this year, Microsoft has [patched multiple loopholes](https://www.pcguide.com/news/windows-11-update-removes-known-local-account-workarounds-so-now-you-definitely-need-to-sign-in-with-microsoft/), which allowed Windows 11 to be installed without a Microsoft account under the guise of "security improvements", requiring users to hand over their personal information to Microsoft just to use the machine that they **already paid for**. And let's not forget how Microsoft pushed millions of otherwise perfectly functional computers into obsolescence with completely unreasonable and seemingly arbitrary Windows 11 [minimum system requirements](https://www.ghacks.net/2024/12/05/windows-11-microsoft-sticks-to-system-requirements-despite-sluggish-conversion/). But perhaps Microsoft's worst offense of all is their insistence on injecting AI into every aspect of their OS. The disastrous launch of Recall made it abundantly clear that people do not, in fact, want AI spyware running on their computer at all times. The dumpster fire that is modern Windows has inadvertently become an excellent advertisement for desktop Linux.
+Will 2026 _finally_ be the year of the Linux desktop? Realistically, probably not. However, I do find it fascinating that while Linux is gaining momentum, Windows is simultaneously getting worse by the day as Microsoft pushes out one anti-consumer update after another. Just this year, Microsoft has [patched multiple loopholes](https://www.pcguide.com/news/windows-11-update-removes-known-local-account-workarounds-so-now-you-definitely-need-to-sign-in-with-microsoft/), which allowed Windows 11 to be installed without a Microsoft account under the guise of "security improvements", requiring users to hand over their personal information to Microsoft just to use the machine that they **already paid for**. And let's not forget how Microsoft pushed millions of otherwise perfectly functional computers into obsolescence with completely unreasonable and seemingly arbitrary Windows 11 [minimum system requirements](https://www.ghacks.net/2024/12/05/windows-11-microsoft-sticks-to-system-requirements-despite-sluggish-conversion/). But perhaps Microsoft's worst offense of all is their insistence on injecting AI into every aspect of their OS. The disastrous launch of Recall made it abundantly clear that people do not, in fact, want AI spyware running on their computer at all times. The dumpster fire that is modern Windows has inadvertently become an excellent advertisement for desktop Linux.
 
 If you're a Windows user (or a macOS user for that matter) who is tired of your computer spying on you without your consent, or you don't care for the AI garbage getting slapped onto every new piece of software, you might want to give Linux a shot! If you have an old laptop lying around, throw a Linux distro like Ubuntu or Fedora on it and take it for a test drive. Maybe even install some open-source applications like LibreOffice or GIMP. The worst that can happen is you lose a few hours learning something new. Who knows, you might end up down the rabbit hole, too.
 

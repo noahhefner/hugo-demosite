@@ -106,20 +106,19 @@
     <h1>An Unexpected [Linux] Journey</h1>
     <p>2025-12-02</p>
 
-    <div class="flex-shrink-0">
-    <div class="square">
-      <img
-        src="/blog/linux-desktop/tux.jpg"
-        class="mb-3 w-100"
-        alt="An Unexpected [Linux] Journey"
-        title="Cover Image"
-      />
-    </div>
-  </div>
-
-
-
     <div class="content-wrapper">
+      
+        
+        
+          <div class="cover-image">
+            <img
+              src="/blog/linux-desktop/tux.jpg"
+              alt="Cover image"
+              class="mb-3 w-100"
+            />
+          </div>
+        
+      
       <h2 id="introduction">Introduction</h2>
 <p>“<a href="https://yearofthelinuxdesktop.net/">The year of the Linux desktop</a>” is somewhat of a running joke in the Linux community. It refers to the idea that one day, Linux will finally establish itself as a mainstream desktop operating system alongside Windows and macOS for everyday computer users. But the prophecy has not yet been fulfilled—thanks to limited support for popular software, a fragmented landscape of desktop environments, and minimal adoption from computer manufacturers. All of this has kept Linux just out of reach for the average computer user.</p>
 <p>But Linux has been in the news several times in the past few years, and it feels like the tide might actually be turning. Valve proved—through the <a href="https://www.theverge.com/pc-gaming/618709/steam-deck-3-year-anniversary-handheld-gaming-shipments-idc?ref=birchtree.me">massive success of the Steam Deck</a>—that Linux doesn’t have to be intimidating; they put a full-fledged Linux desktop in the hands of millions of gamers, many of whom probably didn’t even realize it. More recently, <a href="https://dhh.dk/">DHH</a> has helped generate enthusiasm for Linux through the release of <a href="https://omarchy.org/">Omarchy</a>, a beautiful, easy-to-install Arch Linux configuration geared towards developers. Just last week, the team behind Zorin OS disclosed that its Windows-like Linux distribution has <a href="https://www.windowscentral.com/microsoft/windows-10/windows-10-retirement-pushes-780-000-users-to-linux-as-zorin-os-hits-1m-downloads">gained almost a million new users in the last month</a> thanks to Windows 10 reaching end of life. With Linux adoption rising at such a rapid clip, could 2026 be the year of the Linux desktop?</p>
@@ -196,20 +195,20 @@ FONT=&#39;CaskaydiaCove Nerd Font&#39;
 font={{ FONT }}:size=16
 </code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* (Waybar) style.jinja.css */</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;{{ FONT }}&#34;</span>, Roboto, Helvetica;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;{{ FONT }}&#34;</span>, Roboto, Helvetica;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>After executing the template script, the files look like this:</p>
 <pre tabindex="0"><code># fuzzel.jijna.ini
 font=CaskaydiaCove Nerd Font:size=16
 </code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* (Waybar) style.jinja.css */</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;CaskaydiaCove Nerd Font&#34;</span>, Roboto, Helvetica;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;CaskaydiaCove Nerd Font&#34;</span>, Roboto, Helvetica;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="web-apps">Web Apps</h3>
 <p>Another idea I took directly from the Omarchy playbook is <a href="https://learn.omacom.io/2/the-omarchy-manual/63/web-apps">web apps</a>. Web apps are desktop shortcuts to your most frequently used sites, such as GitHub, YouTube, and ChatGPT. Launching one of these apps via Fuzzel opens Chromium to the web page for that application. This is a useful workaround for applications that don’t have a native Linux client. I added web apps for YouTube, Proton Mail, Proton Calendar, and the National Weather Service.</p>

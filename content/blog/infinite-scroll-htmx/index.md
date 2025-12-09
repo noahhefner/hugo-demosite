@@ -7,7 +7,7 @@ The source code for this demo is available [here](https://github.com/noahhefner/
 
 # Context
 
-I am working on a project at my day job where we are building a documentation site for a very large and complex software system. We have over 20,000 technical documents outlining how the software works. Our customer needs a way to search, browse, and update these documents efficiently. Our current proposed solution uses a Python/FastAPI web server, MongoDB to store the document data, and HTMX to handle frontend updates. (I am not able to make my work repo publicly available, so I have pulled out only the essential logic portions for this demo.) The purpose of this article is to show how we have implemented the "infinite scroll" functionality for the document search results page with our chosen tooling. The ideas, however, should be easily adaptable to other languages (as long you're using HTMX.) *Familiarity with HTMX is recommended before reading this article.*
+I am working on a project at my day job where we are building a documentation site for a very large and complex software system. We have over 20,000 technical documents outlining how the software works. Our customer needs a way to search, browse, and update these documents efficiently. Our current proposed solution uses a Python/FastAPI web server, MongoDB to store the document data, and HTMX to handle frontend updates. (I am not able to make my work repo publicly available, so I have pulled out only the essential logic portions for this demo.) The purpose of this article is to show how we have implemented the "infinite scroll" functionality for the document search results page with our chosen tooling. The ideas, however, should be easily adaptable to other languages (as long you're using HTMX.) _Familiarity with HTMX is recommended before reading this article._
 
 # Problem
 
@@ -65,7 +65,7 @@ The `/search` endpoint accepts three URL parameters:
 
 When the endpoint is hit, the first step is to search the database for the provided query. We pass along the search query, the limit, and the skip values to the database module. This operation will give us back a list of documents from the database where the `"content"` field contains the given query.
 
-Next, we build the context to be passed to the `searchResults.html` template. For each document in the results, we build an object with that document's title, description, and URL. The `context` variable contains the list of match objects, *along with our query, limit, and skip values*. This is key!!
+Next, we build the context to be passed to the `searchResults.html` template. For each document in the results, we build an object with that document's title, description, and URL. The `context` variable contains the list of match objects, _along with our query, limit, and skip values_. This is key!!
 
 Finally, we pass the context to the `searchResults.html` template and return.
 
@@ -104,7 +104,7 @@ Next, let's look at `searchResults.html`:
 
 Let's break down what is happening here: For every match in the context, we are building a simple `div` containing a link to the document and a short description of that document. If the current match is not the last in the list, just build the link and the description. If the current match is the last match in the list and the index is equal to the limit (we will come back to this in a second), then we add an `hx-get` to that div. The `hx-trigger` attribute is set to `revealed`, meaning that the GET request will be fired whenever this `div` is shown in the client's browser. (Remember we are implementing this as an infinite scroll, so this last div will probably not be initially visible when the results are loaded.)
 
-In the `hx-get`, we set the URL to be our search endpoint `/search` and add our query parameters. The query is simply the same query from the initial (first) request. The limit is also the same limit from the initial (first) request. The skip parameter, we are now setting to be `skip + limit`. 
+In the `hx-get`, we set the URL to be our search endpoint `/search` and add our query parameters. The query is simply the same query from the initial (first) request. The limit is also the same limit from the initial (first) request. The skip parameter, we are now setting to be `skip + limit`.
 
 Let's work through a quick example to see why we need this. Say we execute a search and there are 100 results. On the first request to the endpoint, our values for the parameters will be:
 

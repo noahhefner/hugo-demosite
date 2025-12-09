@@ -2,6 +2,10 @@ body {
   font-family: "Inter", Roboto, Helvetica, Arial;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
 .photo {
   width: 24rem;
 }

@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="d-flex flex-column min-vh-100">
+    {{ partial "header.html" . }}
+
+
+    <main class="container d-flex flex-grow-1" style="max-width: 1000px;">
+      {{ if .Site.Params.linkedinEnabled }}
+        <p>LinkedIn Enabled</p>
+      {{ end }}
+    </main>
+  </div>
+{{ end }}

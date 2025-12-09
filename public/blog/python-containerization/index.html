@@ -106,20 +106,19 @@
     <h1>Optimizing Docker Images for Python Applications</h1>
     <p>2025-08-31</p>
 
-    <div class="flex-shrink-0">
-    <div class="square">
-      <img
-        src="/blog/python-containerization/docker_x_python.drawio.png"
-        class="mb-3 w-100"
-        alt="Optimizing Docker Images for Python Applications"
-        title="Cover Image"
-      />
-    </div>
-  </div>
-
-
-
     <div class="content-wrapper">
+      
+        
+        
+          <div class="cover-image">
+            <img
+              src="/blog/python-containerization/docker_x_python.drawio.png"
+              alt="Cover image"
+              class="mb-3 w-100"
+            />
+          </div>
+        
+      
       <p>In my day job, I’ve been spending a lot of time working with Docker containers that run Python applications. Along the way, I found myself digging deep into how to optimize these Docker images. In this article, I’ll walk through the steps I took to build what I think is a solid approach to containerizing Python applications.</p>
 <p>What does it mean to optimize a Docker image? I see three main focus areas in containerization:</p>
 <ol>
@@ -263,74 +262,71 @@
 </span></span><span style="display:flex;"><span> =&gt; [internal] load build context                                                                       0.3s
 </span></span><span style="display:flex;"><span> =&gt; =&gt; transferring context: 1.45kB                                                                     0.0s
 </span></span><span style="display:flex;"><span> =&gt; [2/7] RUN apt-get update &amp;&amp; apt-get install -y     python3     python3-pip     python3-venv        75.2s
-</span></span><span style="display:flex;"><span> =&gt; [3/7] WORKDIR /app                                                                                  0.1s 
-</span></span><span style="display:flex;"><span> =&gt; [4/7] RUN python3 -m venv /opt/venv                                                                 5.6s 
-</span></span><span style="display:flex;"><span> =&gt; [5/7] COPY requirements.txt .                                                                       0.2s 
-</span></span><span style="display:flex;"><span> =&gt; [6/7] RUN pip install --no-cache-dir -r requirements.txt                                            9.0s 
-</span></span><span style="display:flex;"><span> =&gt; [7/7] COPY src/main.py main.py                                                                      0.2s 
-</span></span><span style="display:flex;"><span> =&gt; exporting to image                                                                                 15.1s 
-</span></span><span style="display:flex;"><span> =&gt; =&gt; exporting layers                                                                                15.0s 
+</span></span><span style="display:flex;"><span> =&gt; [3/7] WORKDIR /app                                                                                  0.1s
+</span></span><span style="display:flex;"><span> =&gt; [4/7] RUN python3 -m venv /opt/venv                                                                 5.6s
+</span></span><span style="display:flex;"><span> =&gt; [5/7] COPY requirements.txt .                                                                       0.2s
+</span></span><span style="display:flex;"><span> =&gt; [6/7] RUN pip install --no-cache-dir -r requirements.txt                                            9.0s
+</span></span><span style="display:flex;"><span> =&gt; [7/7] COPY src/main.py main.py                                                                      0.2s
+</span></span><span style="display:flex;"><span> =&gt; exporting to image                                                                                 15.1s
+</span></span><span style="display:flex;"><span> =&gt; =&gt; exporting layers                                                                                15.0s
 </span></span><span style="display:flex;"><span> =&gt; =&gt; writing image sha256:7f305fbf83187c0a6ac0ec601f15ceab932f63433e63d5deec5cbb7020e02306            0.0s
 </span></span></code></pre></div><p>Notice from the first line of this output that the image took almost <strong>two minutes</strong> to build.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>[+] Building 115.1s (12/12) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>[+] Building 115.1s (12/12)
 </span></span></code></pre></div><p>We can also check the size of the image using the <code>docker image inspect</code> command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Id&#34;</span>: <span style="color:#e6db74">&#34;sha256:7f305fbf83187c0a6ac0ec601f15ceab932f63433e63d5deec5cbb7020e02306&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;RepoTags&#34;</span>: [],
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;RepoDigests&#34;</span>: [],
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Parent&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Comment&#34;</span>: <span style="color:#e6db74">&#34;buildkit.dockerfile.v0&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Created&#34;</span>: <span style="color:#e6db74">&#34;2025-08-31T13:59:26.046247413-04:00&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;DockerVersion&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Author&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Architecture&#34;</span>: <span style="color:#e6db74">&#34;amd64&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Os&#34;</span>: <span style="color:#e6db74">&#34;linux&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Size&#34;</span>: <span style="color:#ae81ff">589982747</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;GraphDriver&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Data&#34;</span>: {
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;LowerDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/x7evtxn5ko5prg38egtj3108v/diff:/var/lib/docker/overlay2/6vy6xzzttwioqkwmui2p32t3x/diff:/var/lib/docker/overlay2/nha5u6beay7qkhvxrh75uxb9p/diff:/var/lib/docker/overlay2/d42zkclw5dpznkknw9faw9y9g/diff:/var/lib/docker/overlay2/ni6ccxrx41m6qzd76w9668ab8/diff:/var/lib/docker/overlay2/f3a841789a23e8df2012e3f4ee27d16ccde44036bda182f9d24e65bb3e45b75b/diff&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;MergedDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/merged&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;UpperDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/diff&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;WorkDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/work&#34;</span>
-</span></span><span style="display:flex;"><span>            },
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;overlay2&#34;</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;RootFS&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;layers&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Layers&#34;</span>: [
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:cd9664b1462ea111a41bdadf65ce077582cdc77e28683a4f6996dd03afcc56f5&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:490549fd05a0bfdb9cffdf068573eb00dd9e2446660a635dc75d7cdc7cd7fb35&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:49e8685bade2abd47164d4fe00dee489ecd62d33d6599c14791bc1575487a8b7&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:d86e36a128358d1833aebfd11bdfdc331c95ec796d8e05dce1330b50095357dc&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:42ea22f9e492e8e3550c4deb054060a0b3573b894566e58fd9060242209af0a7&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:b3f0a12bdf6589aff587f4a80de52c4ef9e2030f038f762ca5338b70d37b7773&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;sha256:04ab7ffdb4b43685b118753bc2faa48a29831f7183484c12eb42ca37b3beeff1&#34;</span>
-</span></span><span style="display:flex;"><span>            ]
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Metadata&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;LastTagTime&#34;</span>: <span style="color:#e6db74">&#34;0001-01-01T00:00:00Z&#34;</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Config&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;ArgsEscaped&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Cmd&#34;</span>: [
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;python&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;main.py&#34;</span>
-</span></span><span style="display:flex;"><span>            ],
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Entrypoint&#34;</span>: <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Env&#34;</span>: [
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span>
-</span></span><span style="display:flex;"><span>            ],
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Labels&#34;</span>: {
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;org.opencontainers.image.ref.name&#34;</span>: <span style="color:#e6db74">&#34;ubuntu&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;org.opencontainers.image.version&#34;</span>: <span style="color:#e6db74">&#34;24.04&#34;</span>
-</span></span><span style="display:flex;"><span>            },
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;OnBuild&#34;</span>: <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;User&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Volumes&#34;</span>: <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;WorkingDir&#34;</span>: <span style="color:#e6db74">&#34;/app&#34;</span>
-</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Id&#34;</span>: <span style="color:#e6db74">&#34;sha256:7f305fbf83187c0a6ac0ec601f15ceab932f63433e63d5deec5cbb7020e02306&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RepoTags&#34;</span>: [],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RepoDigests&#34;</span>: [],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Parent&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Comment&#34;</span>: <span style="color:#e6db74">&#34;buildkit.dockerfile.v0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Created&#34;</span>: <span style="color:#e6db74">&#34;2025-08-31T13:59:26.046247413-04:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;DockerVersion&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Author&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Architecture&#34;</span>: <span style="color:#e6db74">&#34;amd64&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Os&#34;</span>: <span style="color:#e6db74">&#34;linux&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Size&#34;</span>: <span style="color:#ae81ff">589982747</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;GraphDriver&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Data&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;LowerDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/x7evtxn5ko5prg38egtj3108v/diff:/var/lib/docker/overlay2/6vy6xzzttwioqkwmui2p32t3x/diff:/var/lib/docker/overlay2/nha5u6beay7qkhvxrh75uxb9p/diff:/var/lib/docker/overlay2/d42zkclw5dpznkknw9faw9y9g/diff:/var/lib/docker/overlay2/ni6ccxrx41m6qzd76w9668ab8/diff:/var/lib/docker/overlay2/f3a841789a23e8df2012e3f4ee27d16ccde44036bda182f9d24e65bb3e45b75b/diff&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;MergedDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/merged&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;UpperDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/diff&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;WorkDir&#34;</span>: <span style="color:#e6db74">&#34;/var/lib/docker/overlay2/6ah4uigim2ih9b1xs6190nz7n/work&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;overlay2&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RootFS&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;layers&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Layers&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:cd9664b1462ea111a41bdadf65ce077582cdc77e28683a4f6996dd03afcc56f5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:490549fd05a0bfdb9cffdf068573eb00dd9e2446660a635dc75d7cdc7cd7fb35&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:49e8685bade2abd47164d4fe00dee489ecd62d33d6599c14791bc1575487a8b7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:d86e36a128358d1833aebfd11bdfdc331c95ec796d8e05dce1330b50095357dc&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:42ea22f9e492e8e3550c4deb054060a0b3573b894566e58fd9060242209af0a7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:b3f0a12bdf6589aff587f4a80de52c4ef9e2030f038f762ca5338b70d37b7773&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sha256:04ab7ffdb4b43685b118753bc2faa48a29831f7183484c12eb42ca37b3beeff1&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Metadata&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;LastTagTime&#34;</span>: <span style="color:#e6db74">&#34;0001-01-01T00:00:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Config&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ArgsEscaped&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Cmd&#34;</span>: [<span style="color:#e6db74">&#34;python&#34;</span>, <span style="color:#e6db74">&#34;main.py&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Entrypoint&#34;</span>: <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Env&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Labels&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;org.opencontainers.image.ref.name&#34;</span>: <span style="color:#e6db74">&#34;ubuntu&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;org.opencontainers.image.version&#34;</span>: <span style="color:#e6db74">&#34;24.04&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;OnBuild&#34;</span>: <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;User&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Volumes&#34;</span>: <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;WorkingDir&#34;</span>: <span style="color:#e6db74">&#34;/app&#34;</span>
 </span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><p>You can see by the <code>Size</code> field (measured in bytes) that the image is over <strong>half a gigabyte</strong>!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;Size&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">589982747</span>
@@ -569,7 +565,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>docker run -it take_six:latest sh
 </span></span><span style="display:flex;"><span>/app $ whoami
 </span></span><span style="display:flex;"><span>demo
-</span></span><span style="display:flex;"><span>/app $ 
+</span></span><span style="display:flex;"><span>/app $
 </span></span></code></pre></div><h2 id="wrap-up">Wrap Up</h2>
 <p>In this article, we explored several strategies for optimizing Docker images when running Python applications. By reducing image size and prioritizing faster build times, we created a compact and more secure container well-suited for Python codebases.</p>
 <p>In summary:</p>
