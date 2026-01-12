@@ -1,154 +1,301 @@
 <!doctype html>
-<html
-  lang="en-us"
-  dir="ltr"
->
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<html lang="en-us" dir="ltr">
+  <head>
+    <script
+      src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload"
+      data-no-instant
+      defer
+    ></script>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<title>
-  
-    Homelab Journey | My New Hugo Site
-  
-</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Homelab Journey | My New Hugo Site</title>
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
 
-<link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-  crossorigin="anonymous"
-/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-  rel="stylesheet"
-/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
 
+    <script src="/js/main.js"></script>
 
-      <script src="/js/main.js"></script>
-
-
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-  crossorigin="anonymous"
-></script>
-
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-body-tertiary">
-    
-  
-
-
-<nav
-  class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top"
-  data-bs-theme="dark"
->
-  <div class="container" style="max-width: 1000px;">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top"
+      data-bs-theme="dark"
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="/" class="nav-link "
-            >Home</a
+      <div class="container" style="max-width: 900px;">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="/" class="nav-link ">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/blog" class="nav-link ">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/uses/">Uses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/connect/">Connect</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div style="padding: 0 1rem;">
+        <h1>Homelab Journey</h1>
+        <p>2024-01-10</p>
+      </div>
+
+      <div class="content">
+        <h2 id="humble-beginnings">Humble Beginnings</h2>
+        <p>
+          My homelab journey started around 3 years ago while I was an undergrad
+          studying computer science. I had gotten fed up with paying Google
+          every month just to store my photos and files. I wanted a solution to
+          store all my photos and files locally. As a student, I had no money at
+          the time, so I purchased a Raspberry Pi. Following
+          <a href="https://www.youtube.com/watch?v=y4dtcr2NL5M"
+            >an excellent guide by Jay LaCroix from on Learn Linux TV</a
+          >, I soon had my very own personal cloud. I used Google’s takeout
+          feature to exfiltrate all my digial assets. After importing all my
+          data to Nextcloud, I had accomplished the original goal:
+          <em>get my data under my own roof</em>.
+        </p>
+        <p>
+          I was content with my creation. I had a tiny, power-efficient server
+          that housed all my photos, files, contacts, and calendars. Setting up
+          Nextcloud taught me a lot about Linux servers and basic networking
+          concepts. It also opened me up to the world of self-hosting and
+          introduced me to the vibrant homelab community. I had originally only
+          planned to run Nextcloud, but I quickly learned that there is
+          <em>so much more</em> to explore.
+        </p>
+        <h2 id="docker">Docker</h2>
+        <p>
+          I set up Nextcloud on my Pi to run on bare metal. While it&rsquo;s not
+          a terribly complex process, I wanted more portability in my server.
+          For this reason, I decided to switch my Nextcloud instance to Docker.
+          What I liked about Docker was that it gave me the ability to quickly
+          destroy and re-deploy services while persisting my data through Docker
+          volumes. I also liked that the deployment process was similar
+          reguardless of the docker image being used. My first additional
+          service containers were
+          <a href="https://github.com/FreshRSS/FreshRSS">FreshRSS</a>, an RSS
+          feed aggregator, and
+          <a href="https://github.com/sissbruecker/linkding">Linkding</a>, a
+          bookmark manager. I put everything behind a reverse proxy called
+          <a href="https://doc.traefik.io/traefik/">Traefik</a> (also running in
+          a Docker container) which allowed me to access my services via my own
+          domain.
+        </p>
+        <p>
+          It was around this time that I made a crucial decision about my
+          homelab: <strong>Docker or Die.</strong> That is to say, I only want
+          to run services that can be run in a Docker container on my homelab. I
+          made this choice for one main reason: ease of maintenance. To make
+          backups, I can simply backup all my docker volumes, which are stored
+          under a single directory. Add some tags to the docker-compose and
+          Traefik will handle the certificates automatically. If a service isn’t
+          working, I always start with the docker logs for that service and see
+          what&rsquo;s happening.
+        </p>
+        <p>
+          I know some cool things can be done with hypervisors like ProxMox, but
+          for me, I don’t think the additional system complexity is worth the
+          potential upsides. (At least for the time being.) Not using a
+          hypervisor reduces the number of failure points that I have to check
+          when something goes wrong. I want my services to “just work” with
+          minimal downtime.
+          <em
+            >If I have to spend more time maintaining my server than I do using
+            my services, then I have missed the point of homelab entirely.</em
           >
-        </li>
-        <li class="nav-item">
-          <a
-            href="/blog"
-            class="nav-link "
-            >Blog</a
+        </p>
+        <p><img src="homepage.png" alt="homepage" /></p>
+        <h2 id="ansible">Ansible</h2>
+        <p>
+          I also decided to take my docker-compose files a step further by
+          converting them to Ansible playbooks. This gave me another level of
+          automation and made my deployment process even faster. I would highly
+          recommend
+          <a href="https://www.jeffgeerling.com/project/ansible-devops"
+            >Jeff Geerlings Ansible for DevOps</a
           >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link "
-            href="/uses/"
-            >Uses</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link "
-            href="/connect/"
-            >Connect</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
-  <div class="container mt-3" style="max-width: 1000px;">
-    <h1>Homelab Journey</h1>
-    <p>2024-01-10</p>
-
-    <div class="content-wrapper">
-      
-      <h2 id="humble-beginnings">Humble Beginnings</h2>
-<p>My homelab journey started around 3 years ago while I was an undergrad studying computer science. I had gotten fed up with paying Google every month just to store my photos and files. I wanted a solution to store all my photos and files locally. As a student, I had no money at the time, so I purchased a Raspberry Pi. Following <a href="https://www.youtube.com/watch?v=y4dtcr2NL5M">an excellent guide by Jay LaCroix from on Learn Linux TV</a>, I soon had my very own personal cloud. I used Google’s takeout feature to exfiltrate all my digial assets. After importing all my data to Nextcloud, I had accomplished the original goal: <em>get my data under my own roof</em>.</p>
-<p>I was content with my creation. I had a tiny, power-efficient server that housed all my photos, files, contacts, and calendars. Setting up Nextcloud taught me a lot about Linux servers and basic networking concepts. It also opened me up to the world of self-hosting and introduced me to the vibrant homelab community. I had originally only planned to run Nextcloud, but I quickly learned that there is <em>so much more</em> to explore.</p>
-<h2 id="docker">Docker</h2>
-<p>I set up Nextcloud on my Pi to run on bare metal. While it&rsquo;s not a terribly complex process, I wanted more portability in my server. For this reason, I decided to switch my Nextcloud instance to Docker. What I liked about Docker was that it gave me the ability to quickly destroy and re-deploy services while persisting my data through Docker volumes. I also liked that the deployment process was similar reguardless of the docker image being used. My first additional service containers were <a href="https://github.com/FreshRSS/FreshRSS">FreshRSS</a>, an RSS feed aggregator, and <a href="https://github.com/sissbruecker/linkding">Linkding</a>, a bookmark manager. I put everything behind a reverse proxy called <a href="https://doc.traefik.io/traefik/">Traefik</a> (also running in a Docker container) which allowed me to access my services via my own domain.</p>
-<p>It was around this time that I made a crucial decision about my homelab: <strong>Docker or Die.</strong> That is to say, I only want to run services that can be run in a Docker container on my homelab. I made this choice for one main reason: ease of maintenance. To make backups, I can simply backup all my docker volumes, which are stored under a single directory. Add some tags to the docker-compose and Traefik will handle the certificates automatically. If a service isn’t working, I always start with the docker logs for that service and see what&rsquo;s happening.</p>
-<p>I know some cool things can be done with hypervisors like ProxMox, but for me, I don’t think the additional system complexity is worth the potential upsides. (At least for the time being.) Not using a hypervisor reduces the number of failure points that I have to check when something goes wrong. I want my services to “just work” with minimal downtime. <em>If I have to spend more time maintaining my server than I do using my services, then I have missed the point of homelab entirely.</em></p>
-<p><img src="homepage.png" alt="homepage"></p>
-<h2 id="ansible">Ansible</h2>
-<p>I also decided to take my docker-compose files a step further by converting them to Ansible playbooks. This gave me another level of automation and made my deployment process even faster. I would highly recommend <a href="https://www.jeffgeerling.com/project/ansible-devops">Jeff Geerlings Ansible for DevOps</a> as it was a great resource for me when I was just getting started.</p>
-<p>A few things I like about Ansible:</p>
-<ul>
-<li><strong>Ansible Vault</strong>: Ansible Vault is a mechanism for storing sensitive playbook information (API keys, usernames/passwords, etc.) in an encrypted text file. I also use the vault as a central location for all my playbook variables. I just like having one file to go to when I want to change something (which isn’t the primary use case for Vault, but it works for me.)</li>
-<li><strong>Templates</strong>: Many services utilize some sort of JSON/YAML/TOML file to configure options within the service. With Ansibles Template mechanism, I can use my vault variables within the configuration file and Ansible will automatically fill in the values when the file is copied to the target machine. This is especially useful for services like Homepage that have a large number of configuration options.</li>
-</ul>
-<h2 id="more-power">More Power</h2>
-<p>The Raspberry Pi is an amazing little computer, but it was beginning to struggle a bit (especially in Nextcloud) running all my containers. In the first of what would be a series of hardware transitions, I transformed my desktop gaming PC into an Ubuntu server. I moved my docker volumes directory to the new drive, ran my Ansible playbooks, and I was up and running again in no time. I purchased a mid-range NVIDIA GPU a few years back, which I utilized for hardware acceleration in <a href="https://jellyfin.org/">Jellyfin</a>, a recent addition to my container fleet.</p>
-<p><img src="more.gif" alt="more"></p>
-<p>This worked well for a time, but I started to miss my desktop and my gaming monitor was collecting dust in the corner of my room. Inspired by an <a href="https://www.youtube.com/watch?v=zPmqbtKwtgw">LTT video on up-cycling old hardware as a home server</a>, I purchased a Dell Optiplex Desktop on Facebook Marketplace for $80. It has a 7th gen Intel i5 and 8GB of DDR3, a solid base on which I could build. I cleaned it up a bit, swapped the spinning disk drive for an SSD, migrated all my containers, and I was good to go. As a bonus, it came with a CD drive which I could use for ripping DVDs and CDs.</p>
-<p><img src="optiplex.png" alt="optiplex"></p>
-<p>This brings me to the current day where I am still running all my containers on the Optiplex. However, I have made a few upgrades, particularly in the networking department. The biggest upgrade was replacing my TP-Link router with a dedicated OPNsense box. In addition to performing the usual routing/firewall duties, it also runs a Wireguard instance, giving me access to my server from outside my local network. I also purchased a rack, a basic unmanaged network switch, and a cheap PDU from Amazon to round it out. (It is very much still a work in progress.)</p>
-<p><img src="rack.jpg" alt="rack"></p>
-<p>The Raspberry Pi I started with has now been repurposed as a Pihole. I set up the OPNsense box to forward all DNS requests to the Pi, which blocks advertisement and tracking requests. My TP-Link router/wireless access point had its router duties revoked, now handling just the latter. I’m still using the Optiplex for my docker containers, but I have a 4U chassis from <a href="https://www.sliger.com/">Sliger</a> ready to accept some new server hardware. (I had originally planned to put the Optiplex internals in the 4U chassis, but it has a proprietary Dell motherboard and power supply, neither of which will install correctly into the chassis.) I plan to purchase some new hardware for the Sliger chassis and turn the Optiplex into an HTPC.</p>
-<h2 id="professional-applications-and-lessons-learned">Professional Applications and Lessons Learned</h2>
-<p>I’ve enjoyed setting up all this equipment for my personal use. But the cool thing about homelab is that these skills are also marketable in a professional environment. I’ve learned about a wide array of topics such as:</p>
-<ul>
-<li>Setting up a Linux server and performing basic management tasks</li>
-<li>Configuring and spinning up containers with Docker</li>
-<li>Automating server tasks with Ansible</li>
-<li>Networking concepts like sub-netting, port forwarding, and firewall rules</li>
-</ul>
-<p>In conclusion, here are some lessons I have learned during my homelab journey that I would like to share:</p>
-<ul>
-<li><strong>Start small</strong>: You don’t need to run out and buy a ton of expensive equipment if you are starting from scratch with no prior experience. My Raspberry Pi was a great introduction to self-hosting and it allowed me to gain a lot of experience for a low price.</li>
-<li><strong>One thing at a time</strong>: Focus on one task at a time. It’s easy to have multiple sub-projects in progress at once, like converting docker-compose files to Ansible playbooks, writing new playbooks for new services, or setting up PiHole. Taking on too many tasks at once causes me to lose track of what I’m trying to accomplish and I would fail to complete anything at all. Setting small goals and focusing on implementing a singular feature helped me progress faster in my homelab journey.</li>
-<li><strong>Document everything</strong>: Take notes on your system configuration. It is helpful to have a reference guide to refresh your memory when you are troubleshooting a service that has suddenly stopped working. And this doesn’t just mean taking notes. I&rsquo;ve found it helpful to download offline copies of articles and tutorials that I used to configure things in my lab. Create diagrams of your entire system so you know what is running and what it is running on.</li>
-</ul>
-<p>If you made it all the way through this article, thanks for reading! I hope to produce more technology related writing like this in the future. I plan to post updates on my new hardware and services as the homelab continues to grow.</p>
-
-    </div>
-  </div>
-
+          as it was a great resource for me when I was just getting started.
+        </p>
+        <p>A few things I like about Ansible:</p>
+        <ul>
+          <li>
+            <strong>Ansible Vault</strong>: Ansible Vault is a mechanism for
+            storing sensitive playbook information (API keys,
+            usernames/passwords, etc.) in an encrypted text file. I also use the
+            vault as a central location for all my playbook variables. I just
+            like having one file to go to when I want to change something (which
+            isn’t the primary use case for Vault, but it works for me.)
+          </li>
+          <li>
+            <strong>Templates</strong>: Many services utilize some sort of
+            JSON/YAML/TOML file to configure options within the service. With
+            Ansibles Template mechanism, I can use my vault variables within the
+            configuration file and Ansible will automatically fill in the values
+            when the file is copied to the target machine. This is especially
+            useful for services like Homepage that have a large number of
+            configuration options.
+          </li>
+        </ul>
+        <h2 id="more-power">More Power</h2>
+        <p>
+          The Raspberry Pi is an amazing little computer, but it was beginning
+          to struggle a bit (especially in Nextcloud) running all my containers.
+          In the first of what would be a series of hardware transitions, I
+          transformed my desktop gaming PC into an Ubuntu server. I moved my
+          docker volumes directory to the new drive, ran my Ansible playbooks,
+          and I was up and running again in no time. I purchased a mid-range
+          NVIDIA GPU a few years back, which I utilized for hardware
+          acceleration in <a href="https://jellyfin.org/">Jellyfin</a>, a recent
+          addition to my container fleet.
+        </p>
+        <p><img src="more.gif" alt="more" /></p>
+        <p>
+          This worked well for a time, but I started to miss my desktop and my
+          gaming monitor was collecting dust in the corner of my room. Inspired
+          by an
+          <a href="https://www.youtube.com/watch?v=zPmqbtKwtgw"
+            >LTT video on up-cycling old hardware as a home server</a
+          >, I purchased a Dell Optiplex Desktop on Facebook Marketplace for
+          $80. It has a 7th gen Intel i5 and 8GB of DDR3, a solid base on which
+          I could build. I cleaned it up a bit, swapped the spinning disk drive
+          for an SSD, migrated all my containers, and I was good to go. As a
+          bonus, it came with a CD drive which I could use for ripping DVDs and
+          CDs.
+        </p>
+        <p><img src="optiplex.png" alt="optiplex" /></p>
+        <p>
+          This brings me to the current day where I am still running all my
+          containers on the Optiplex. However, I have made a few upgrades,
+          particularly in the networking department. The biggest upgrade was
+          replacing my TP-Link router with a dedicated OPNsense box. In addition
+          to performing the usual routing/firewall duties, it also runs a
+          Wireguard instance, giving me access to my server from outside my
+          local network. I also purchased a rack, a basic unmanaged network
+          switch, and a cheap PDU from Amazon to round it out. (It is very much
+          still a work in progress.)
+        </p>
+        <p><img src="rack.jpg" alt="rack" /></p>
+        <p>
+          The Raspberry Pi I started with has now been repurposed as a Pihole. I
+          set up the OPNsense box to forward all DNS requests to the Pi, which
+          blocks advertisement and tracking requests. My TP-Link router/wireless
+          access point had its router duties revoked, now handling just the
+          latter. I’m still using the Optiplex for my docker containers, but I
+          have a 4U chassis from
+          <a href="https://www.sliger.com/">Sliger</a> ready to accept some new
+          server hardware. (I had originally planned to put the Optiplex
+          internals in the 4U chassis, but it has a proprietary Dell motherboard
+          and power supply, neither of which will install correctly into the
+          chassis.) I plan to purchase some new hardware for the Sliger chassis
+          and turn the Optiplex into an HTPC.
+        </p>
+        <h2 id="professional-applications-and-lessons-learned">
+          Professional Applications and Lessons Learned
+        </h2>
+        <p>
+          I’ve enjoyed setting up all this equipment for my personal use. But
+          the cool thing about homelab is that these skills are also marketable
+          in a professional environment. I’ve learned about a wide array of
+          topics such as:
+        </p>
+        <ul>
+          <li>
+            Setting up a Linux server and performing basic management tasks
+          </li>
+          <li>Configuring and spinning up containers with Docker</li>
+          <li>Automating server tasks with Ansible</li>
+          <li>
+            Networking concepts like sub-netting, port forwarding, and firewall
+            rules
+          </li>
+        </ul>
+        <p>
+          In conclusion, here are some lessons I have learned during my homelab
+          journey that I would like to share:
+        </p>
+        <ul>
+          <li>
+            <strong>Start small</strong>: You don’t need to run out and buy a
+            ton of expensive equipment if you are starting from scratch with no
+            prior experience. My Raspberry Pi was a great introduction to
+            self-hosting and it allowed me to gain a lot of experience for a low
+            price.
+          </li>
+          <li>
+            <strong>One thing at a time</strong>: Focus on one task at a time.
+            It’s easy to have multiple sub-projects in progress at once, like
+            converting docker-compose files to Ansible playbooks, writing new
+            playbooks for new services, or setting up PiHole. Taking on too many
+            tasks at once causes me to lose track of what I’m trying to
+            accomplish and I would fail to complete anything at all. Setting
+            small goals and focusing on implementing a singular feature helped
+            me progress faster in my homelab journey.
+          </li>
+          <li>
+            <strong>Document everything</strong>: Take notes on your system
+            configuration. It is helpful to have a reference guide to refresh
+            your memory when you are troubleshooting a service that has suddenly
+            stopped working. And this doesn’t just mean taking notes. I&rsquo;ve
+            found it helpful to download offline copies of articles and
+            tutorials that I used to configure things in my lab. Create diagrams
+            of your entire system so you know what is running and what it is
+            running on.
+          </li>
+        </ul>
+        <p>
+          If you made it all the way through this article, thanks for reading! I
+          hope to produce more technology related writing like this in the
+          future. I plan to post updates on my new hardware and services as the
+          homelab continues to grow.
+        </p>
+      </div>
+    </main>
   </body>
 </html>

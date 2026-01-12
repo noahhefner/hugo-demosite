@@ -37,6 +37,20 @@
       <description>&lt;p&gt;The source code for this demo is available &lt;a href=&#34;https://github.com/noahhefner/website-code/tree/main/infinite-scroll-htmx&#34;&gt;here&lt;/a&gt;. Instructions for setting up the project are in the README.&lt;/p&gt;&#xA;&lt;h1 id=&#34;context&#34;&gt;Context&lt;/h1&gt;&#xA;&lt;p&gt;I am working on a project at my day job where we are building a documentation site for a very large and complex software system. We have over 20,000 technical documents outlining how the software works. Our customer needs a way to search, browse, and update these documents efficiently. Our current proposed solution uses a Python/FastAPI web server, MongoDB to store the document data, and HTMX to handle frontend updates. (I am not able to make my work repo publicly available, so I have pulled out only the essential logic portions for this demo.) The purpose of this article is to show how we have implemented the &amp;ldquo;infinite scroll&amp;rdquo; functionality for the document search results page with our chosen tooling. The ideas, however, should be easily adaptable to other languages (as long you&amp;rsquo;re using HTMX.) &lt;em&gt;Familiarity with HTMX is recommended before reading this article.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Papernote</title>
+      <link>http://localhost:1313/blog/papernote/papernote/</link>
+      <pubDate>Sat, 13 Apr 2024 18:46:40 -0500</pubDate>
+      <guid>http://localhost:1313/blog/papernote/papernote/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve tried a lot of note-taking applications. Ive used Google Keep, &lt;a href=&#34;https://standardnotes.com/&#34;&gt;Standard Notes&lt;/a&gt;, &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt;, and more recently, &lt;a href=&#34;https://github.com/Dullage/flatnotes&#34;&gt;Flatnotes&lt;/a&gt;. All of these options (minus Google Keep) have a few common traits. They are all self-hostable, open-source, and support markdown. Going forward, any note-taking application I use must have these three key features.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve really enjoyed Flatnotes. It has one key feature that made me move away from Joplin which is plain markdown file storage. Unlike Joplin which stores note data in an SQL database, Flatnotes reads and writes data directly to markdown files stored on the server. This makes it incredibly easy to move notes in and out of the server and very easy to back up notes by keeping them in a Docker volume. Nothing is locking your notes into the application.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thoughts on Artificial Intelligence</title>
+      <link>http://localhost:1313/blog/learning-with-ai/learning-with-ai/</link>
+      <pubDate>Fri, 08 Mar 2024 18:46:40 -0500</pubDate>
+      <guid>http://localhost:1313/blog/learning-with-ai/learning-with-ai/</guid>
+      <description>&lt;p&gt;I recently put out an article on my note-taking application side-project, &lt;a href=&#34;https://github.com/noahhefner/papernote&#34;&gt;Papernote&lt;/a&gt;. This might be the first time I started a side project and actually saw it through to the minimum viable product (MVP) state. In prior side-projects, I would usually lose interest in the original idea or run into some technical issue that I could not solve and give up. This time was different though, and I atrribute that in large part to ChatGPT.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Homelab Journey</title>
       <link>http://localhost:1313/blog/homelab-journey/</link>
       <pubDate>Wed, 10 Jan 2024 00:40:04 -0700</pubDate>

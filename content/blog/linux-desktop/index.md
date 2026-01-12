@@ -116,12 +116,12 @@ I also wrote a small templating script in Python that reads values from a `.env`
 
 In the example below, I have two configuration files: one for [Fuzzel](https://codeberg.org/dnkl/fuzzel), my app launcher, and one for [Waybar](https://github.com/Alexays/Waybar), my status bar. I wanted to use the same font for both Waybar and Fuzzel, so instead of hardcoding `CaskaydiaCove Nerd Font` in both files, I use the Jinja syntax to programmatically insert the font name into both files.
 
-```
+```plaintext
 # .env
 FONT='CaskaydiaCove Nerd Font'
 ```
 
-```
+```plaintext
 # fuzzel.jijna.ini
 font={{ FONT }}:size=16
 ```
@@ -138,7 +138,7 @@ font={{ FONT }}:size=16
 
 After executing the template script, the files look like this:
 
-```
+```plaintext
 # fuzzel.jijna.ini
 font=CaskaydiaCove Nerd Font:size=16
 ```
